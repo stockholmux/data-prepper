@@ -1,6 +1,6 @@
 tasks:
-	- init: cd ./examples/jaeger-hotrod && docker-compose pull
-	- command: cd ./examples/jaeger-hotrod && docker-compose up
+	- init: "cd ./examples/jaeger-hotrod && docker-compose pull"
+	- command: "cd ./examples/jaeger-hotrod && docker-compose up"
 
 ports:
 	# dashboards
