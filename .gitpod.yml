@@ -1,9 +1,9 @@
 tasks:
+  - init: "mkdir tutorial && curl https://opensearch.org/tutorials/loading.html > ./tutorial/index.html cd tutorial && python3 -m http.server 8000"
   - init: "cd ./examples/jaeger-hotrod && docker-compose pull"
   - command: "cd ./examples/jaeger-hotrod && docker-compose up"
-  - init: "mkdir tutorial && curl https://opensearch.org/tutorials/opn305.html > ./tutorial/index.html"
   - init: "./check-dashboards.sh"
-    command: "cd tutorial && python3 -m http.server 8000"
+    command: "curl https://opensearch.org/tutorials/opn305.html > ./tutorial/index.html"
 
 ports:
   - port: 8000
