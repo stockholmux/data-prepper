@@ -8,3 +8,6 @@ build
 
 # Ignore things downloaded for gradle es plugin
 gradle/tools
+
+# Ignore live tutorial
+tutorial
