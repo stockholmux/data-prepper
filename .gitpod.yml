@@ -1,0 +1,10 @@
+tasks:
+	- init: cd ./examples/jaeger-hotrod && docker-compose pull
+	- command: cd ./examples/jaeger-hotrod && docker-compose up
+
+ports:
+	# dashboards
+	- port: 5601
+		onOpen: open-preview
+	- port: 8080
+		onOpen: open-preview
