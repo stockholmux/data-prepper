@@ -50,6 +50,7 @@ services:
       - "8080-8083:8080-8083"
     depends_on:
       - jaeger-agent
+      - dashboards
     networks:
       - my_network
   opensearch:
