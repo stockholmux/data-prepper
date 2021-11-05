@@ -1,5 +1,5 @@
 tasks:
-  - init: "mkdir tutorial && curl https://opensearch.org/tutorials/loading.html > ./tutorial/index.html cd tutorial && python3 -m http.server 8000"
+  - init: "mkdir tutorial && curl https://opensearch.org/tutorials/loading.html > ./tutorial/index.html && cd tutorial && python3 -m http.server 8000"
   - init: "cd ./examples/jaeger-hotrod && docker-compose pull"
   - command: "cd ./examples/jaeger-hotrod && docker-compose up"
   - init: "./check-dashboards.sh"
