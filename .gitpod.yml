@@ -3,7 +3,6 @@ tasks:
   - command: "cd ./examples/jaeger-hotrod && docker-compose up"
 
 ports:
-  # dashboards
   - port: 5601
     onOpen: open-preview
   - port: 8080
@@ -18,3 +17,10 @@ ports:
     onOpen: ignore
   - port: 14250
     onOpen: ignore
+  - port: 9200
+    onOpen: ignore
+  - port: 21890
+    onOpen: ignore
+  - port: 5778
+    onOpen: ignore
+  
