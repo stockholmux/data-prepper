@@ -1,14 +1,17 @@
 tasks:
   - init: "cd ./examples/jaeger-hotrod && docker-compose pull"
   - command: "cd ./examples/jaeger-hotrod && docker-compose up"
+  - init: "curl https://opensearch.org/tutorials/opn305.html > index.html"
   - init: "./check-dashboards.sh"
-    command: "gp preview $(gp url 5601)"
+    command: "python3 -m http.server 9000"
 
 ports:
+  - port: 9000
+    onOpen: open-preview
   - port: 5601
     onOpen: ignore
   - port: 8080
-    onOpen: open-browser
+    onOpen: ignore
   - port: 9600
     onOpen: ignore
   - port: 8081
