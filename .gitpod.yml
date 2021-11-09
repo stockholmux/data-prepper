@@ -3,7 +3,7 @@ tasks:
   - init: "cd ./examples/jaeger-hotrod && docker-compose pull"
   - command: "cd ./examples/jaeger-hotrod && docker-compose up"
   - init: "./check-dashboards.sh"
-    command: "mkdir tutorial/tutorial && touch ./tutorial/tutorial/cddashboardsready.txt"
+    command: "mkdir tutorial/tutorial && touch ./tutorial/tutorial/dashboardsready.txt"
 
 ports:
   - port: 8000
