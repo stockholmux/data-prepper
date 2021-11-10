@@ -1,4 +1,3 @@
-
 # Data Prepper
 
 We envision Data Prepper as an open source data collector for observability data (trace, logs, metrics) that can filter, enrich, transform, normalize, and aggregate data for downstream analysis and visualization. It will support stateful processing across multiple instances of data pipelines for observability use cases such as distributed tracing and multi-line log events (e.g. stack traces, aggregations, and log-to-metric transformations). Currently Data Prepper supports processing of distributed trace data and will support processing of logs and metric data in the future. 
@@ -12,6 +11,10 @@ who wants to run Data Prepper.
 
 Please read the [Trace Analytics](docs/trace_analytics.md) guide to get started with using
 Data Prepper for trace analytics use cases.
+
+## Tutorial
+
+Launch a live tutorial of [OpenSearch + OpenSearch Dashboards + Data Prepper + Jaeger](https://gitpod.io/#https://github.com/stockholmux/data-prepper/tree/jaeger-hotrod-demo-env).
 
 ## Project Resources
 
