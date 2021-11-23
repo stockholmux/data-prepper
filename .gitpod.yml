@@ -9,11 +9,13 @@ tasks:
   - init: |
       ./gradlew clean :release:docker:docker -Prelease
       gp await-port 9200
-    command: "docker run --name data-prepper -v /workspace/data-prepper/examples/log-ingestion/log_pipeline.yaml:/usr/share/data-prepper/pipelines.yaml --network \"log-ingestion_opensearch-net\" opensearch-data-prepper:1.2.0-SNAPSHOT && touch ./tutorial/tutorial/data-prepper-built.txt"
+    command: |
+      touch ./tutorial/tutorial/data-prepper-built.txt
+      docker run --name data-prepper -v /workspace/data-prepper/examples/log-ingestion/log_pipeline.yaml:/usr/share/data-prepper/pipelines.yaml --network "log-ingestion_opensearch-net" opensearch-data-prepper:1.2.0-SNAPSHOT
   - init: |
       gp await-port 5601
       ./check-dashboards.sh
-    command: "mkdir tutorial/tutorial && touch ./tutorial/tutorial/dashboardsready.txt"
+    command: "touch ./tutorial/tutorial/dashboardsready.txt"
   - init: |
       go get -u github.com/mingrammer/flog
     command: |
