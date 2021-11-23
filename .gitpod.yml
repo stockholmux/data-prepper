@@ -1,4 +1,8 @@
 tasks:
+  - init: |
+      mkdir tutorial
+      cd tutorial
+      mkdir tutorial 
 #  - init: "mkdir tutorial && curl https://opensearch.org/tutorials/data-prepper-jaeger.html > ./tutorial/index.html && cd tutorial && python3 -m http.server 8000"
   - init: "cd ./examples/log-ingestion && docker-compose pull"
   - command: "cd ./examples/log-ingestion && docker-compose up"
