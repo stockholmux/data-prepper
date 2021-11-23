@@ -4,7 +4,7 @@ tasks:
   - command: "cd ./examples/log-ingestion && docker-compose up"
   - init: |
       ./gradlew clean :release:docker:docker -Prelease
-      gp await-port 9000
+      gp await-port 9200
     command: "docker run --name data-prepper -v /workspace/data-prepper/examples/log-ingestion/log_pipeline.yaml:/usr/share/data-prepper/pipelines.yaml --network \"log-ingestion_opensearch-net\" opensearch-data-prepper:1.2.0-SNAPSHOT"
   - init: |
       gp await-port 5601
@@ -19,7 +19,7 @@ ports:
   - port: 8000
     onOpen: ignore
   - port: 5601
-    onOpen: open-preview
+    onOpen: ignore
   - port: 2021
     onOpen: ignore
   - port: 9600
