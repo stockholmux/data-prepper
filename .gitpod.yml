@@ -12,7 +12,7 @@ tasks:
     command: "mkdir tutorial/tutorial && touch ./tutorial/tutorial/dashboardsready.txt"
   - init: |
       go get -u github.com/mingrammer/flog
-      gp await-port 4900
+      gp await-port 5601
     command: "flog -d 2s -l -t log -o /workspace/data-prepper/examples/log-ingestion/test.log"
 
 ports:
