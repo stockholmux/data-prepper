@@ -5,15 +5,20 @@ tasks:
   - init: |
       ./gradlew clean :release:docker:docker -Prelease
       gp await-port 9200
-    command: "docker run --name data-prepper -v /workspace/data-prepper/examples/log-ingestion/log_pipeline.yaml:/usr/share/data-prepper/pipelines.yaml --network \"log-ingestion_opensearch-net\" opensearch-data-prepper:1.2.0-SNAPSHOT"
+    command: "docker run --name data-prepper -v /workspace/data-prepper/examples/log-ingestion/log_pipeline.yaml:/usr/share/data-prepper/pipelines.yaml --network \"log-ingestion_opensearch-net\" opensearch-data-prepper:1.2.0-SNAPSHOT && touch ./tutorial/tutorial/data-prepper-built.txt"
   - init: |
       gp await-port 5601
       ./check-dashboards.sh
     command: "mkdir tutorial/tutorial && touch ./tutorial/tutorial/dashboardsready.txt"
   - init: |
       go get -u github.com/mingrammer/flog
-      gp await-port 5601
-    command: "flog -d 2s -l -t log -o /workspace/data-prepper/examples/log-ingestion/test.log -w"
+    command: |
+      until [ -f ./tutorial/tutorial/data-prepper-built.txt ]
+      do
+          echo "checking for data prepper..."
+          sleep 5
+      done
+      flog -d 2s -l -t log -o /workspace/data-prepper/examples/log-ingestion/test.log -w"
 
 ports:
   - port: 4900
