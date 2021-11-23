@@ -16,6 +16,8 @@ tasks:
     command: "flog -d 2s -l -t log -o /workspace/data-prepper/examples/log-ingestion/test.log"
 
 ports:
+  - port: 2021
+    onOpen: ignore
   - port: 8000
     onOpen: ignore
   - port: 5601
