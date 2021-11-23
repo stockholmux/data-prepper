@@ -13,11 +13,7 @@ tasks:
   - init: |
       go get -u github.com/mingrammer/flog
     command: |
-      until [ -f ./tutorial/tutorial/data-prepper-built.txt ]
-      do
-          echo "checking for data prepper..."
-          sleep 5
-      done
+      ./check-data-prepper.sh
       flog -d 2s -l -t log -o /workspace/data-prepper/examples/log-ingestion/test.log -w"
 
 ports:
