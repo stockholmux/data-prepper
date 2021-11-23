@@ -1,0 +1,31 @@
+tasks:
+#  - init: "mkdir tutorial && curl https://opensearch.org/tutorials/data-prepper-jaeger.html > ./tutorial/index.html && cd tutorial && python3 -m http.server 8000"
+  - init: "cd ./examples/log-ingestion && docker-compose pull"
+  - command: "cd ./examples/log-ingestion && docker-compose up"
+  - init: "./check-dashboards.sh"
+    command: "mkdir tutorial/tutorial && touch ./tutorial/tutorial/dashboardsready.txt"
+
+ports:
+  - port: 8000
+    onOpen: open-preview
+  - port: 5601
+    onOpen: ignore
+  - port: 8080
+    onOpen: ignore
+  - port: 9600
+    onOpen: ignore
+  - port: 8081
+    onOpen: ignore
+  - port: 8082
+    onOpen: ignore
+  - port: 8083
+    onOpen: ignore
+  - port: 14250
+    onOpen: ignore
+  - port: 9200
+    onOpen: ignore
+  - port: 21890
+    onOpen: ignore
+  - port: 5778
+    onOpen: ignore
+  
