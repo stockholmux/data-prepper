@@ -14,7 +14,7 @@ tasks:
       go get -u github.com/mingrammer/flog
     command: |
       ./check-data-prepper.sh
-      flog -d 2s -l -t log -o /workspace/data-prepper/examples/log-ingestion/test.log -w"
+      flog -d 2s -l -t log -o /workspace/data-prepper/examples/log-ingestion/test.log -w
 
 ports:
   - port: 4900
