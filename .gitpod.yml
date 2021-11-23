@@ -12,10 +12,12 @@ tasks:
     command: "mkdir tutorial/tutorial && touch ./tutorial/tutorial/dashboardsready.txt"
   - init: |
       go get -u github.com/mingrammer/flog
-      gp await-port 2021
+      gp await-port 4900
     command: "flog -d 2s -l -t log -o /workspace/data-prepper/examples/log-ingestion/test.log"
 
 ports:
+  - port: 4900
+    onOpen: ignore
   - port: 2021
     onOpen: ignore
   - port: 8000
@@ -26,11 +28,7 @@ ports:
     onOpen: ignore
   - port: 9600
     onOpen: ignore
-  - port: 8081
-    onOpen: ignore
-  - port: 8082
-    onOpen: ignore
-  - port: 8083
+  - port: 5678
     onOpen: ignore
   - port: 14250
     onOpen: ignore
