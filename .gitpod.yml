@@ -15,6 +15,7 @@ tasks:
   - init: |
       gp await-port 5601
       ./check-dashboards.sh
+      curl -u admin:admin -XPOST http://localhost:5601/api/saved_objects/index-pattern/  -H 'osd-xsrf: true' -H 'Content-Type: application/json' -d "$(cat ./examples/log-ingestion/index-pattern.json)"
     command: "touch ./tutorial/tutorial/dashboardsready.txt"
   - init: |
       gp await-port 9200

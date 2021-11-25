@@ -11,5 +11,4 @@ gradle/tools
 
 # Ignore live tutorial
 /tutorial
-examples/log-ingestion/*.log
-
+examples/log-ingestion/test.log

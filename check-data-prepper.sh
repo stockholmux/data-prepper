@@ -3,3 +3,4 @@ do
     echo "checking for data prepper..."
     sleep 2
 done
+echo "Data Prepper Ready!"
