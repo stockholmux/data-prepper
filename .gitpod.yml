@@ -18,6 +18,7 @@ tasks:
       curl -u admin:admin -XPOST http://localhost:5601/api/saved_objects/index-pattern/  -H 'osd-xsrf: true' -H 'Content-Type: application/json' -d "$(cat ./examples/log-ingestion/index-pattern.json)"
     command: "touch ./tutorial/tutorial/dashboardsready.txt"
   - init: |
+      touch /workspace/data-prepper/examples/log-ingestion/test.log
       gp await-port 9200
       go get -u github.com/mingrammer/flog
     command: |
