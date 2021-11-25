@@ -3,7 +3,12 @@ tasks:
       mkdir tutorial
       cd tutorial
       mkdir tutorial 
-#  - init: "mkdir tutorial && curl https://opensearch.org/tutorials/data-prepper-jaeger.html > ./tutorial/index.html && cd tutorial && python3 -m http.server 8000"
+  - init: |
+      cp /workspace/data-prepper/examples/log-ingestion/index.html  /workspace/data-prepper/tutorial/index.html
+      cp /workspace/data-prepper/docs/images/Log_Ingestion_FluentBit_DataPrepper_OpenSearch.jpg /workspace/data-prepper/tutorial/Log_Ingestion_FluentBit_DataPrepper_OpenSearch.jpg
+      cd tutorial
+      python3 -m http.server 8000
+    
   - init: "cd ./examples/log-ingestion && docker-compose pull"
   - command: "cd ./examples/log-ingestion && docker-compose up"
   - init: |
@@ -34,7 +39,7 @@ ports:
   - port: 2021
     onOpen: ignore
   - port: 8000
-    onOpen: ignore
+    onOpen: open-preview
   - port: 5601
     onOpen: ignore
   - port: 2021
