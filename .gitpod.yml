@@ -17,6 +17,8 @@ tasks:
       ./check-dashboards.sh
     command: "touch ./tutorial/tutorial/dashboardsready.txt"
   - init: |
+      gp await-port 9200
+      curl -XPUT https://localhost:9200/_index_template/apache_logs_template -u admin:admin -k -H 'Content-Type: application/json' -d "$(cat ./examples/log-ingestion/template.json)"
       go get -u github.com/mingrammer/flog
     command: |
       ./check-data-prepper.sh

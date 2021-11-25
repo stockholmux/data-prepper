@@ -1,13 +1,13 @@
 { 
-    "index_patterns" : ["apache_lo*"],
-    "template" : {
-      "mappings" : {
-        "properties" : {
-            "timestamp" : {
-              "type":   "date",
-              "format": "dd/MMM/yyyy:HH:mm:ss Z"
-            }
-        }
+  "index_patterns" : ["apache_lo*"],
+  "template" : {
+    "mappings" : {
+      "properties" : {
+          "timestamp" : {
+            "type":   "date",
+            "format": "dd/MMM/yyyy:HH:mm:ss Z"
+          }
       }
     }
   }
+}
